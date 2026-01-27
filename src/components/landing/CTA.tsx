@@ -2,7 +2,11 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 
-const CTA = () => {
+interface CTAProps {
+  onJoinWaitlist: () => void;
+}
+
+const CTA = ({ onJoinWaitlist }: CTAProps) => {
   return (
     <section className="py-24 relative overflow-hidden">
       {/* Background effects */}
@@ -45,7 +49,7 @@ const CTA = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <Button variant="hero" size="xl" className="group">
+            <Button variant="hero" size="xl" className="group" onClick={onJoinWaitlist}>
               Join the Waitlist for Early Access
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Button>

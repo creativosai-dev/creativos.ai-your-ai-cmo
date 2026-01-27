@@ -2,7 +2,12 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 
-const Hero = () => {
+interface HeroProps {
+  onJoinWaitlist: () => void;
+  onHowItWorks: () => void;
+}
+
+const Hero = ({ onJoinWaitlist, onHowItWorks }: HeroProps) => {
   return (
     <section className="relative min-h-screen hero-gradient overflow-hidden">
       {/* Animated background elements */}
@@ -67,11 +72,11 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex flex-col sm:flex-row gap-4"
         >
-          <Button variant="hero" size="xl" className="group">
+          <Button variant="hero" size="xl" className="group" onClick={onJoinWaitlist}>
             Join the Waitlist
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </Button>
-          <Button variant="heroOutline" size="xl">
+          <Button variant="heroOutline" size="xl" onClick={onHowItWorks}>
             See How It Works
           </Button>
         </motion.div>
