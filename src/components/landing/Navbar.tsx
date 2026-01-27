@@ -2,7 +2,11 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Sparkles } from "lucide-react";
 
-const Navbar = () => {
+interface NavbarProps {
+  onJoinWaitlist: () => void;
+}
+
+const Navbar = ({ onJoinWaitlist }: NavbarProps) => {
   return (
     <motion.nav
       initial={{ opacity: 0, y: -20 }}
@@ -21,7 +25,7 @@ const Navbar = () => {
           </a>
 
           {/* CTA Button */}
-          <Button variant="default" size="sm">
+          <Button variant="default" size="sm" onClick={onJoinWaitlist}>
             Join Waitlist
           </Button>
         </div>
