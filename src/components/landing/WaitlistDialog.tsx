@@ -70,6 +70,21 @@ const WaitlistDialog = ({ isOpen, onClose }: WaitlistDialogProps) => {
 
       if (error) throw error;
 
+      // Send confirmation email (fire and forget — don't block success)
+      supabase.functions.invoke("send-waitlist-email", {
+        body: {
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          brandName: formData.brandName.trim(),
+        },
+      }).then(({ error: emailError }) => {
+        if (emailError) {
+          console.error("Failed to send confirmation email:", emailError);
+        } else {
+          console.log("Confirmation email sent successfully");
+        }
+      });
+
       setIsSuccess(true);
     } catch (error) {
       console.error("Error submitting waitlist:", error);
