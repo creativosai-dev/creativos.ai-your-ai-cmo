@@ -13,10 +13,14 @@ const Footer = () => {
             <span className="text-lg font-bold font-heading">creativos.ai</span>
           </a>
 
-          {/* Copyright */}
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} creativos.ai. All rights reserved.
-          </p>
+          <div className="flex items-center gap-6">
+            <a href="/privacy-policy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Privacy Policy
+            </a>
+            <p className="text-sm text-muted-foreground">
+              © {new Date().getFullYear()} creativos.ai. All rights reserved.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
