@@ -1,4 +1,5 @@
 import { Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -14,9 +15,9 @@ const Footer = () => {
           </a>
 
           <div className="flex items-center gap-6">
-            <a href="/privacy-policy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/privacy-policy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Privacy Policy
-            </a>
+            </Link>
             <p className="text-sm text-muted-foreground">
               © {new Date().getFullYear()} creativos.ai. All rights reserved.
             </p>
